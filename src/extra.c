@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 01:46:08 by pedromota         #+#    #+#             */
-/*   Updated: 2023/06/29 10:49:30 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:21:52 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void waitall(pid_t *all, int loop, int options)
 		waitpid(all[i++], NULL, options);
 }
 
-
-
 static int check_elements(char *input, char *target)
 {
 	int target_len;
@@ -38,11 +36,6 @@ static int check_elements(char *input, char *target)
 
 	target_len = ft_strlen(target);
 	input_len = ft_strlen(input) - 1;
-
-	printf("input: %s\n", input);
-	printf("target: %s\n", target);
-	printf("input_len: %d\n", input_len);
-	printf("target_len: %d\n", target_len);
 	if (ft_strncmp(input, target, target_len) == 0 && input_len == target_len)
 		return 1;
 	return 0;
@@ -63,6 +56,11 @@ void heredoc(t_pipex *a)
 	{
 		write(1, "heredoc > ", 10);
 		text = get_next_line(0);
+		if (!text)
+		{
+			free(text);
+			continue;
+		}
 		if (check_elements(text, a->delimeter))
 			break;
 		write(here_doc[1], text, ft_strlen(text));

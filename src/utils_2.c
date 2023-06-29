@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedromota <pedromota@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 04:06:24 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/06/27 01:49:05 by pedromota        ###   ########.fr       */
+/*   Updated: 2023/06/29 12:34:52 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_pipex	*pipex(void)
 
 void	file_descriptors_manager(int command_selector, t_pipex *a)
 {
+	printf("Command Selector %i\n", command_selector);
 	if (command_selector == 0)
 		a->fds->dups[0] = dup2(a->fds->fd[0], STDIN_FILENO);
 	else

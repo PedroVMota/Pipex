@@ -6,14 +6,25 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 01:46:58 by pedromota         #+#    #+#             */
-/*   Updated: 2023/06/29 11:23:46 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/06/29 15:23:11 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+static int	count_doubles(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 void	uploadstartdata(void)
 {
+	(pipex())->n_args = count_doubles((pipex())->cmds) - 1;
 	(pipex())->fds->dups[0] = -1;
 	(pipex())->fds->dups[1] = -1;
 }
@@ -41,14 +52,12 @@ void	set_modes(char **av, t_pipex *a, int ac)
 		a->is_heredoc = 0;
 		a->cmds = &av[2];
 		a->files[0] = av[1];
-		a->n_args = ac - 2;
 	}
 	else
 	{
 		a->cmds = &av[3];
 		a->is_heredoc = 1;
 		a->delimeter = av[2];
-		a->n_args = ac - 3;
 	}
 	uploadstartdata();
 	set_files(a);

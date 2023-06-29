@@ -1,5 +1,5 @@
 APP = pipex
-CC = cc -g -Wall -Wextra -Werror -I include/
+CC = cc -g -Wall -Wextra -Werror -I include/ #-fsanitize=address
 
 FILES = ./src/extra.c ./src/parse.c ./src/child_process.c ./src/setting_data.c ./src/main.c ./src/utils_2.c ./src/helper_functions.c
 OBJECT = $(FILES:.c=.o)
