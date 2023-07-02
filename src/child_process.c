@@ -55,6 +55,7 @@ void child_process(t_pipex *a, int i, char **envp)
 		report_command(a->cmds[i]);
 		file_descriptors_manager(i, a);
 	}
+	close(a->fds->end[1]);
 	clean_split(a->paths);
 	clean_split(args);
 	free(pathcmd);

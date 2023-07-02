@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setting_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedromota <pedromota@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 01:46:58 by pedromota         #+#    #+#             */
-/*   Updated: 2023/06/29 15:23:11 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/01 18:15:35 by pedromota        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,18 @@ void	uploadstartdata(void)
 static void	set_files(t_pipex *a)
 {
 	if (a->is_heredoc)
+	{
 		(pipex())->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_APPEND,
 			0644);
+	}
 	else
 	{
 		a->fds->fd[0] = open(a->files[0], O_RDONLY);
 		if (a->fds->fd[0] == -1)
-			printf("There is no such file %s%s%s\n", RED ,a->files[0], RESET);
+		{
+			printf("There is no such file %s%s%s\n", RED, a->files[0], RESET);
+			a->fds->fd[0] = open("/dev/null", O_RDONLY);
+		}
 		(pipex())->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_TRUNC,
 			0644);
 	}

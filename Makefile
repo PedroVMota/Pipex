@@ -1,5 +1,6 @@
+oof
 APP = pipex
-CC = cc -g -Wall -Wextra -Werror -I include/ #-fsanitize=address
+CC = cc -g -Wall -Wextra -Werror -I include/ -gdwarf-2 #-fsanitize=address 
 
 FILES = ./src/extra.c ./src/parse.c ./src/child_process.c ./src/setting_data.c ./src/main.c ./src/utils_2.c ./src/helper_functions.c
 OBJECT = $(FILES:.c=.o)
@@ -111,25 +112,24 @@ all: $(APP)
 	@printf "  "
 	@printf " $(BLUHB)         $(RESET)\n\n"
 
-
-
 $(APP): $(OBJECT)
-	make -C ./libft
-	$(CC) $(CFLAGS)  $(OBJECT)  ./libft/libft.a -o $(APP)
+	@make -C libft/ --no-print
+	$(CC) $(CFLAGS)  $(OBJECT)  libft/libft.a -o $(APP)
 
 bonus: $(OBJECT_FOR_BONUS)
-	make -C ./libft
-	$(CC) $(CFLAGS) ./libft/libft.a $(OBJECT_FOR_BONUS) -o $(APP)
+	@make -C libft/ --no-print
+	$(CC) $(CFLAGS) libft/libft.a $(OBJECT_FOR_BONUS) -o $(APP)
 
 %.o: %.c
+	@printf ">> $(GRN)PIPEX$(RESET) <<\t $(BLU)Compiling:$(RESET) $<\n"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	make clean -C ./libft
-	rm -f $(OBJECT) $(OBJECT_FOR_BONUS)
+	@make clean -C libft/ --no-print
+	@rm -f $(OBJECT) $(OBJECT_FOR_BONUS)
 
 fclean: clean
-	make fclean -C ./libft
-	rm -f $(APP)
+	@make fclean -C libft/ --no-print
+	@rm -f $(APP)
 
 re: fclean all

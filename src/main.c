@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedromota <pedromota@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:49:38 by pedromota         #+#    #+#             */
-/*   Updated: 2023/06/29 15:04:49 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/01 20:49:05 by pedromota        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void pipex_init(t_pipex *a, char **envp)
+void	pipex_init(t_pipex *a, char **envp)
 {
-	int i;
-	int *pid;
+	int	i;
+	int	*pid;
 
 	i = -1;
 	pid = malloc(sizeof(int) * (a->n_args));
@@ -42,9 +42,9 @@ void pipex_init(t_pipex *a, char **envp)
 	free(pid);
 }
 
-int checkargs(char **params)
+int	checkargs(char **params)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (params[i])
@@ -56,11 +56,11 @@ int checkargs(char **params)
 	return (1);
 }
 
-int main(int ac, char **av, char **en)
+int	main(int ac, char **av, char **en)
 {
-	set_modes(av, pipex(), ac);
-	if (pipex()->n_args < 1)
+	if (ac - 1 < 4)
 		error_func("Not enough arguments");
+	set_modes(av, pipex(), ac);
 	formatpath(en);
 	pipex_init(pipex(), en);
 	exec_exit(pipex());
