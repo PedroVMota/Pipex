@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setting_data.c                                     :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedromota <pedromota@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 01:46:58 by pedromota         #+#    #+#             */
-/*   Updated: 2023/07/01 18:15:35 by pedromota        ###   ########.fr       */
+/*   Updated: 2023/07/02 18:00:51 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ static void	set_files(t_pipex *a)
 {
 	if (a->is_heredoc)
 	{
-		(pipex())->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_APPEND,
+		a->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_APPEND, \
 			0644);
+		if (a->fds->fd[1] == -1)
+			error_func("There is no outfile");
 	}
 	else
 	{
@@ -44,8 +46,10 @@ static void	set_files(t_pipex *a)
 			printf("There is no such file %s%s%s\n", RED, a->files[0], RESET);
 			a->fds->fd[0] = open("/dev/null", O_RDONLY);
 		}
-		(pipex())->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_TRUNC,
+		a->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_TRUNC, \
 			0644);
+		if (a->fds->fd[1] == -1)
+			error_func("There is no outfile");
 	}
 }
 

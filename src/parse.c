@@ -6,17 +6,16 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:45:11 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/06/29 15:18:49 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:01:21 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-
-static void path_setup(char **path)
+static void	path_setup(char **path)
 {
-	char *tmp;
-	int i;
+	char	*tmp;
+	int		i;
 
 	i = 0;
 	tmp = NULL;
@@ -31,10 +30,9 @@ static void path_setup(char **path)
 	}
 }
 
-
-void formatpath(char **__enviroment)
+void	formatpath(char **__enviroment)
 {
-	char *temp;
+	char	*temp;
 
 	while (ft_strncmp(*__enviroment, "PATH=", 5))
 		__enviroment++;

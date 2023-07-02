@@ -1,10 +1,5 @@
 *.o
 .vscode
 .DS_store
-file1
-file2
-infile
-outfile
 pipex
-libft.a
-.git
+*.py
