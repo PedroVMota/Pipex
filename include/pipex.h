@@ -19,20 +19,10 @@
 # include "get_next_line_bonus.h"
 # include "libft.h"
 # include "limits.h"
+# include <errno.h>
 # include <stdbool.h>
 # include <string.h>
-#include <errno.h>
 # include <sys/wait.h>
-
-
-# define HEREDOC_ERROR "here_doc"
-# define INFILE_ERROR "Infile"
-# define OUTFILE_ERROR "Outfile"
-# define COMMAND_ERROR "Command"
-# define PIPE_ERROR "Pipe"
-# define INPUT_ERROR "Invalid number of arguments.\n"
-# define ENVIROMENT_ERROR "Enviroment"
-
 
 typedef struct s_fds
 {

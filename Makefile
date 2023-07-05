@@ -24,3 +24,8 @@ fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C ./libft --no-print
 re: fclean all
+
+
+#[submodule "libft"]
+#path = libft
+#url = git@github.com:PedroVMota/libft.git

@@ -36,14 +36,14 @@ static void	set_files(t_pipex *a)
 		a->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_APPEND, \
 			0644);
 		if (a->fds->fd[1] == -1)
-			error_func("There is no outfile");
+			ft_printf("%s\n", strerror(errno));
 	}
 	else
 	{
 		a->fds->fd[0] = open(a->files[0], O_RDONLY);
 		if (a->fds->fd[0] == -1)
 		{
-			printf("There is no such file %s%s%s\n", RED, a->files[0], RESET);
+			ft_printf("There is no such file %s%s%s\n", RED, a->files[0], RESET);
 			a->fds->fd[0] = open("/dev/null", O_RDONLY);
 		}
 		a->fds->fd[1] = open(a->files[1], O_CREAT | O_RDWR | O_TRUNC, \

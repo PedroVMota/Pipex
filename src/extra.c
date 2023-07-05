@@ -19,6 +19,7 @@ void	waitall(pid_t *all, int loop, int options)
 	i = 0;
 	while (i < loop)
 		waitpid(all[i++], NULL, options);
+	free(all);
 }
 
 static int	check_elements(char *input, char *target)

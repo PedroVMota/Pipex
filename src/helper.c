@@ -49,8 +49,12 @@ void	error_func(char *msg)
 	if (pipex()->fds->dups[1] != -1)
 		close(pipex()->fds->dups[1]);
 	if (msg)
-		ft_printf("%s\n", msg);
-	ft_printf("./pipex infile cmd1 cmd2 outfile\n");
+		ft_printf("%sError: %s%s\n\n", RED, RESET, msg);
+	ft_printf("==== Mandatory ====\n");
+	ft_printf("\t./pipex infile cmd1 cmd2 outfile\n");
+	ft_printf("==== Bonus ====\n");
+	ft_printf("\t./pipex infile cmd1 cmd2 cm3 ... cmdn outfile\n");
+	ft_printf("\t./pipex here_doc SOME_TEXT cmd1 cmd2 cm3 ... cmdn outfile\n");
 	exit(EXIT_FAILURE);
 }
 

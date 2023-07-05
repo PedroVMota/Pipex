@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-static void	cleanall(char **paths, char **args, char *str)
+static void	cleanall(char **paths, char **args, char *str, int status)
 {
 	if (paths)
 		clean_split(paths);
@@ -25,7 +25,7 @@ static void	cleanall(char **paths, char **args, char *str)
 	close((pipex())->fds->end[0]);
 	close((pipex())->fds->fd[0]);
 	close((pipex())->fds->fd[1]);
-	exit(EXIT_FAILURE);
+	exit(errno);
 }
 
 int	put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
@@ -58,9 +58,11 @@ void	child_process(t_pipex *a, int i, char **envp)
 	char	**args;
 	char	*pathcmd;
 	int		flag;
+	int		status;
 
 	args = NULL;
 	pathcmd = NULL;
+	status = 1;
 	if (!access(a->cmds[i], X_OK))
 	{
 		pathcmd = ft_strdup(a->cmds[i]);
@@ -70,10 +72,12 @@ void	child_process(t_pipex *a, int i, char **envp)
 	else
 		flag = put_valid_cmds(a->cmds[i], a, &args, &pathcmd);
 	if (flag == 0)
-			cleanall(a->paths, args, pathcmd);
-	else
 	{
+		ft_printf("%s\n", strerror(errno));
 		file_descriptors_manager(i, a);
-		execve(pathcmd, args, envp);
+		cleanall(a->paths, args, pathcmd, status);
 	}
+	file_descriptors_manager(i, a);
+	status = execve(pathcmd, args, envp);
+	cleanall(a->paths, args, pathcmd, status);
 }

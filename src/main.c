@@ -44,7 +44,6 @@ void	pipex_init(t_pipex *a, char **envp)
 		file_description_cleaner(i, a);
 	}
 	waitall(pid, a->n_args, 0);
-	free(pid);
 }
 
 int	main(int ac, char **av, char **en)
