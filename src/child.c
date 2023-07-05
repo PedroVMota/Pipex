@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 15:43:57 by pvital-m          #+#    #+#             */
-/*   Updated: 2023/07/02 19:15:56 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/05 22:21:18 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ static void	cleanall(char **paths, char **args, char *str, int status)
 		clean_split(args);
 	if (str)
 		free(str);
-	close((pipex())->fds->end_point);
-	close((pipex())->fds->end[1]);
-	close((pipex())->fds->end[0]);
-	close((pipex())->fds->fd[0]);
-	close((pipex())->fds->fd[1]);
+	// close((pipex())->fds->end_point);
+	// close((pipex())->fds->end[1]);
+	// close((pipex())->fds->end[0]);
+	// close((pipex())->fds->fd[0]);
+	// close((pipex())->fds->fd[1]);
+	perror("OOF");
 	exit(errno);
 }
 
@@ -50,7 +51,8 @@ int	put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
 			return (1);
 		x++;
 	}
-	return (0);
+	printf("NAO EXUCUTAR\n");
+	return (1);
 }
 
 void	child_process(t_pipex *a, int i, char **envp)
@@ -78,6 +80,10 @@ void	child_process(t_pipex *a, int i, char **envp)
 		cleanall(a->paths, args, pathcmd, status);
 	}
 	file_descriptors_manager(i, a);
-	status = execve(pathcmd, args, envp);
+	char *test[2] = {"lpo", NULL};
+	status = execve(test[0], test, envp);
+	fprintf(stderr, "status mano: %d\n", errno);
+	perror(NULL);
+
 	cleanall(a->paths, args, pathcmd, status);
 }

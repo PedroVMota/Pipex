@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 22:04:49 by pedromota         #+#    #+#             */
-/*   Updated: 2023/07/02 19:05:30 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/05 22:09:57 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ void	error_func(char *msg)
 ** exec_exit - frees memory allocated for a 2D array of strings
 ** @a: pointer to the pipex struct
 */
-void	exec_exit(t_pipex *a)
+void	exec_exit(t_pipex *a, int status)
 {
 	clean_split(a->paths);
-	exit(0);
+	printf("Status: %i\n", status);
+	// perror("asdas :");
+	exit(status);
 }

@@ -6,20 +6,26 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 01:46:08 by pedromota         #+#    #+#             */
-/*   Updated: 2023/07/02 18:01:42 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/05 22:09:34 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	waitall(pid_t *all, int loop, int options)
+int	waitall(pid_t *all, int loop, int options)
 {
 	int	i;
+	int	status;
 
 	i = 0;
+	status = 0;
 	while (i < loop)
-		waitpid(all[i++], NULL, options);
+	{
+		waitpid(all[i++], &status, options);
+		printf("Process[%i] >> %s%d%s\n", i, YEL, status, RESET);
+	}
 	free(all);
+	return (status);
 }
 
 static int	check_elements(char *input, char *target)

@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:49:38 by pedromota         #+#    #+#             */
-/*   Updated: 2023/07/02 18:00:18 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/05 22:02:09 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	manage_here_forking(int i, int *pid, t_pipex *a)
 		error_func("Fork Error");
 }
 
-void	pipex_init(t_pipex *a, char **envp)
+int	pipex_init(t_pipex *a, char **envp)
 {
 	int	i;
 	int	*pid;
@@ -43,17 +43,22 @@ void	pipex_init(t_pipex *a, char **envp)
 		}
 		file_description_cleaner(i, a);
 	}
-	waitall(pid, a->n_args, 0);
+	int status = waitall(pid, a->n_args, 0); 
+
+	return (status);
 }
 
 int	main(int ac, char **av, char **en)
 {
+	int	exit_status;
+
+	exit_status = 0;
 	if (ac - 1 < 4)
 		error_func("Not enough arguments");
 	set_modes(av, pipex(), ac);
 	formatpath(en);
 	if (!(pipex())->paths)
 		error_func("Error Parsing the PATH variable");
-	pipex_init(pipex(), en);
-	exec_exit(pipex());
+	exit_status = pipex_init(pipex(), en);
+	exec_exit(pipex(), exit_status / 256);
 }

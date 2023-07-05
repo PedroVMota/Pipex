@@ -6,7 +6,7 @@
 /*   By: pvital-m <pvital-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 16:40:10 by pedromota         #+#    #+#             */
-/*   Updated: 2023/07/02 19:21:58 by pvital-m         ###   ########.fr       */
+/*   Updated: 2023/07/05 21:51:07 by pvital-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void		clean_split(char **var);
 void		error_func(char *msg);
 void		copy_double_pointer(char **dest, char **src);
 void		uploadstartdata(void);
-void		exec_exit(t_pipex *a);
+void		exec_exit(t_pipex *a, int status);
 void		file_description_cleaner(int i, t_pipex *a);
 void		set_modes(char **av, t_pipex *a, int ac);
 void		child_process(t_pipex *a, int i, char **envp);
 void		heredoc(t_pipex *a);
-void		waitall(pid_t *all, int loop, int options);
+int			waitall(pid_t *all, int loop, int options);
 void		command_checker(void);
 #endif
