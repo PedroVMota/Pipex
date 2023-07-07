@@ -11,10 +11,10 @@ all: $(NAME)
 
 $(NAME): $(C_OBJS)
 	@make -C libft/ --no-print
-	$(COMPILER) $(CFLAGS) $(CINC) $(C_OBJS) libft/libft.a -o $(NAME)
+	$(COMPILER) $(CLAGS) $(CINC) $(C_OBJS) libft/libft.a -o $(NAME)
 
 %.o: %.c
-	$(COMPILER) $(CFLAGS) $(CINC) -c $< -o $@
+	$(COMPILER) $(CLAGS) $(CINC) -c $< -o $@
 
 clean:
 	@rm -f $(C_OBJS)

@@ -1,0 +1,500 @@
+0: Success
+1: Operation not permitted
+2: No such file or directory
+3: No such process
+4: Interrupted system call
+5: Input/output error
+6: No such device or address
+7: Argument list too long
+8: Exec format error
+9: Bad file descriptor
+10: No child processes
+11: Resource temporarily unavailable
+12: Cannot allocate memory
+13: Permission denied
+14: Bad address
+15: Block device required
+16: Device or resource busy
+17: File exists
+18: Invalid cross-device link
+19: No such device
+20: Not a directory
+21: Is a directory
+22: Invalid argument
+23: Too many open files in system
+24: Too many open files
+25: Inappropriate ioctl for device
+26: Text file busy
+27: File too large
+28: No space left on device
+29: Illegal seek
+30: Read-only file system
+31: Too many links
+32: Broken pipe
+33: Numerical argument out of domain
+34: Numerical result out of range
+35: Resource deadlock avoided
+36: File name too long
+37: No locks available
+38: Function not implemented
+39: Directory not empty
+40: Too many levels of symbolic links
+41: Unknown error 41
+42: No message of desired type
+43: Identifier removed
+44: Channel number out of range
+45: Level 2 not synchronized
+46: Level 3 halted
+47: Level 3 reset
+48: Link number out of range
+49: Protocol driver not attached
+50: No CSI structure available
+51: Level 2 halted
+52: Invalid exchange
+53: Invalid request descriptor
+54: Exchange full
+55: No anode
+56: Invalid request code
+57: Invalid slot
+58: Unknown error 58
+59: Bad font file format
+60: Device not a stream
+61: No data available
+62: Timer expired
+63: Out of streams resources
+64: Machine is not on the network
+65: Package not installed
+66: Object is remote
+67: Link has been severed
+68: Advertise error
+69: Srmount error
+70: Communication error on send
+71: Protocol error
+72: Multihop attempted
+73: RFS specific error
+74: Bad message
+75: Value too large for defined data type
+76: Name not unique on network
+77: File descriptor in bad state
+78: Remote address changed
+79: Can not access a needed shared library
+80: Accessing a corrupted shared library
+81: .lib section in a.out corrupted
+82: Attempting to link in too many shared libraries
+83: Cannot exec a shared library directly
+84: Invalid or incomplete multibyte or wide character
+85: Interrupted system call should be restarted
+86: Streams pipe error
+87: Too many users
+88: Socket operation on non-socket
+89: Destination address required
+90: Message too long
+91: Protocol wrong type for socket
+92: Protocol not available
+93: Protocol not supported
+94: Socket type not supported
+95: Operation not supported
+96: Protocol family not supported
+97: Address family not supported by protocol
+98: Address already in use
+99: Cannot assign requested address
+100: Network is down
+101: Network is unreachable
+102: Network dropped connection on reset
+103: Software caused connection abort
+104: Connection reset by peer
+105: No buffer space available
+106: Transport endpoint is already connected
+107: Transport endpoint is not connected
+108: Cannot send after transport endpoint shutdown
+109: Too many references: cannot splice
+110: Connection timed out
+111: Connection refused
+112: Host is down
+113: No route to host
+114: Operation already in progress
+115: Operation now in progress
+116: Stale file handle
+117: Structure needs cleaning
+118: Not a XENIX named type file
+119: No XENIX semaphores available
+120: Is a named type file
+121: Remote I/O error
+122: Disk quota exceeded
+123: No medium found
+124: Wrong medium type
+125: Operation canceled
+126: Required key not available
+127: Key has expired
+128: Key has been revoked
+129: Key was rejected by service
+130: Owner died
+131: State not recoverable
+132: Operation not possible due to RF-kill
+133: Memory page has hardware error
+134: Unknown error 134
+135: Unknown error 135
+136: Unknown error 136
+137: Unknown error 137
+138: Unknown error 138
+139: Unknown error 139
+140: Unknown error 140
+141: Unknown error 141
+142: Unknown error 142
+143: Unknown error 143
+144: Unknown error 144
+145: Unknown error 145
+146: Unknown error 146
+147: Unknown error 147
+148: Unknown error 148
+149: Unknown error 149
+150: Unknown error 150
+151: Unknown error 151
+152: Unknown error 152
+153: Unknown error 153
+154: Unknown error 154
+155: Unknown error 155
+156: Unknown error 156
+157: Unknown error 157
+158: Unknown error 158
+159: Unknown error 159
+160: Unknown error 160
+161: Unknown error 161
+162: Unknown error 162
+163: Unknown error 163
+164: Unknown error 164
+165: Unknown error 165
+166: Unknown error 166
+167: Unknown error 167
+168: Unknown error 168
+169: Unknown error 169
+170: Unknown error 170
+171: Unknown error 171
+172: Unknown error 172
+173: Unknown error 173
+174: Unknown error 174
+175: Unknown error 175
+176: Unknown error 176
+177: Unknown error 177
+178: Unknown error 178
+179: Unknown error 179
+180: Unknown error 180
+181: Unknown error 181
+182: Unknown error 182
+183: Unknown error 183
+184: Unknown error 184
+185: Unknown error 185
+186: Unknown error 186
+187: Unknown error 187
+188: Unknown error 188
+189: Unknown error 189
+190: Unknown error 190
+191: Unknown error 191
+192: Unknown error 192
+193: Unknown error 193
+194: Unknown error 194
+195: Unknown error 195
+196: Unknown error 196
+197: Unknown error 197
+198: Unknown error 198
+199: Unknown error 199
+200: Unknown error 200
+201: Unknown error 201
+202: Unknown error 202
+203: Unknown error 203
+204: Unknown error 204
+205: Unknown error 205
+206: Unknown error 206
+207: Unknown error 207
+208: Unknown error 208
+209: Unknown error 209
+210: Unknown error 210
+211: Unknown error 211
+212: Unknown error 212
+213: Unknown error 213
+214: Unknown error 214
+215: Unknown error 215
+216: Unknown error 216
+217: Unknown error 217
+218: Unknown error 218
+219: Unknown error 219
+220: Unknown error 220
+221: Unknown error 221
+222: Unknown error 222
+223: Unknown error 223
+224: Unknown error 224
+225: Unknown error 225
+226: Unknown error 226
+227: Unknown error 227
+228: Unknown error 228
+229: Unknown error 229
+230: Unknown error 230
+231: Unknown error 231
+232: Unknown error 232
+233: Unknown error 233
+234: Unknown error 234
+235: Unknown error 235
+236: Unknown error 236
+237: Unknown error 237
+238: Unknown error 238
+239: Unknown error 239
+240: Unknown error 240
+241: Unknown error 241
+242: Unknown error 242
+243: Unknown error 243
+244: Unknown error 244
+245: Unknown error 245
+246: Unknown error 246
+247: Unknown error 247
+248: Unknown error 248
+249: Unknown error 249
+250: Unknown error 250
+251: Unknown error 251
+252: Unknown error 252
+253: Unknown error 253
+254: Unknown error 254
+255: Unknown error 255
+256: Unknown error 256
+257: Unknown error 257
+258: Unknown error 258
+259: Unknown error 259
+260: Unknown error 260
+261: Unknown error 261
+262: Unknown error 262
+263: Unknown error 263
+264: Unknown error 264
+265: Unknown error 265
+266: Unknown error 266
+267: Unknown error 267
+268: Unknown error 268
+269: Unknown error 269
+270: Unknown error 270
+271: Unknown error 271
+272: Unknown error 272
+273: Unknown error 273
+274: Unknown error 274
+275: Unknown error 275
+276: Unknown error 276
+277: Unknown error 277
+278: Unknown error 278
+279: Unknown error 279
+280: Unknown error 280
+281: Unknown error 281
+282: Unknown error 282
+283: Unknown error 283
+284: Unknown error 284
+285: Unknown error 285
+286: Unknown error 286
+287: Unknown error 287
+288: Unknown error 288
+289: Unknown error 289
+290: Unknown error 290
+291: Unknown error 291
+292: Unknown error 292
+293: Unknown error 293
+294: Unknown error 294
+295: Unknown error 295
+296: Unknown error 296
+297: Unknown error 297
+298: Unknown error 298
+299: Unknown error 299
+300: Unknown error 300
+301: Unknown error 301
+302: Unknown error 302
+303: Unknown error 303
+304: Unknown error 304
+305: Unknown error 305
+306: Unknown error 306
+307: Unknown error 307
+308: Unknown error 308
+309: Unknown error 309
+310: Unknown error 310
+311: Unknown error 311
+312: Unknown error 312
+313: Unknown error 313
+314: Unknown error 314
+315: Unknown error 315
+316: Unknown error 316
+317: Unknown error 317
+318: Unknown error 318
+319: Unknown error 319
+320: Unknown error 320
+321: Unknown error 321
+322: Unknown error 322
+323: Unknown error 323
+324: Unknown error 324
+325: Unknown error 325
+326: Unknown error 326
+327: Unknown error 327
+328: Unknown error 328
+329: Unknown error 329
+330: Unknown error 330
+331: Unknown error 331
+332: Unknown error 332
+333: Unknown error 333
+334: Unknown error 334
+335: Unknown error 335
+336: Unknown error 336
+337: Unknown error 337
+338: Unknown error 338
+339: Unknown error 339
+340: Unknown error 340
+341: Unknown error 341
+342: Unknown error 342
+343: Unknown error 343
+344: Unknown error 344
+345: Unknown error 345
+346: Unknown error 346
+347: Unknown error 347
+348: Unknown error 348
+349: Unknown error 349
+350: Unknown error 350
+351: Unknown error 351
+352: Unknown error 352
+353: Unknown error 353
+354: Unknown error 354
+355: Unknown error 355
+356: Unknown error 356
+357: Unknown error 357
+358: Unknown error 358
+359: Unknown error 359
+360: Unknown error 360
+361: Unknown error 361
+362: Unknown error 362
+363: Unknown error 363
+364: Unknown error 364
+365: Unknown error 365
+366: Unknown error 366
+367: Unknown error 367
+368: Unknown error 368
+369: Unknown error 369
+370: Unknown error 370
+371: Unknown error 371
+372: Unknown error 372
+373: Unknown error 373
+374: Unknown error 374
+375: Unknown error 375
+376: Unknown error 376
+377: Unknown error 377
+378: Unknown error 378
+379: Unknown error 379
+380: Unknown error 380
+381: Unknown error 381
+382: Unknown error 382
+383: Unknown error 383
+384: Unknown error 384
+385: Unknown error 385
+386: Unknown error 386
+387: Unknown error 387
+388: Unknown error 388
+389: Unknown error 389
+390: Unknown error 390
+391: Unknown error 391
+392: Unknown error 392
+393: Unknown error 393
+394: Unknown error 394
+395: Unknown error 395
+396: Unknown error 396
+397: Unknown error 397
+398: Unknown error 398
+399: Unknown error 399
+400: Unknown error 400
+401: Unknown error 401
+402: Unknown error 402
+403: Unknown error 403
+404: Unknown error 404
+405: Unknown error 405
+406: Unknown error 406
+407: Unknown error 407
+408: Unknown error 408
+409: Unknown error 409
+410: Unknown error 410
+411: Unknown error 411
+412: Unknown error 412
+413: Unknown error 413
+414: Unknown error 414
+415: Unknown error 415
+416: Unknown error 416
+417: Unknown error 417
+418: Unknown error 418
+419: Unknown error 419
+420: Unknown error 420
+421: Unknown error 421
+422: Unknown error 422
+423: Unknown error 423
+424: Unknown error 424
+425: Unknown error 425
+426: Unknown error 426
+427: Unknown error 427
+428: Unknown error 428
+429: Unknown error 429
+430: Unknown error 430
+431: Unknown error 431
+432: Unknown error 432
+433: Unknown error 433
+434: Unknown error 434
+435: Unknown error 435
+436: Unknown error 436
+437: Unknown error 437
+438: Unknown error 438
+439: Unknown error 439
+440: Unknown error 440
+441: Unknown error 441
+442: Unknown error 442
+443: Unknown error 443
+444: Unknown error 444
+445: Unknown error 445
+446: Unknown error 446
+447: Unknown error 447
+448: Unknown error 448
+449: Unknown error 449
+450: Unknown error 450
+451: Unknown error 451
+452: Unknown error 452
+453: Unknown error 453
+454: Unknown error 454
+455: Unknown error 455
+456: Unknown error 456
+457: Unknown error 457
+458: Unknown error 458
+459: Unknown error 459
+460: Unknown error 460
+461: Unknown error 461
+462: Unknown error 462
+463: Unknown error 463
+464: Unknown error 464
+465: Unknown error 465
+466: Unknown error 466
+467: Unknown error 467
+468: Unknown error 468
+469: Unknown error 469
+470: Unknown error 470
+471: Unknown error 471
+472: Unknown error 472
+473: Unknown error 473
+474: Unknown error 474
+475: Unknown error 475
+476: Unknown error 476
+477: Unknown error 477
+478: Unknown error 478
+479: Unknown error 479
+480: Unknown error 480
+481: Unknown error 481
+482: Unknown error 482
+483: Unknown error 483
+484: Unknown error 484
+485: Unknown error 485
+486: Unknown error 486
+487: Unknown error 487
+488: Unknown error 488
+489: Unknown error 489
+490: Unknown error 490
+491: Unknown error 491
+492: Unknown error 492
+493: Unknown error 493
+494: Unknown error 494
+495: Unknown error 495
+496: Unknown error 496
+497: Unknown error 497
+498: Unknown error 498
+499: Unknown error 499

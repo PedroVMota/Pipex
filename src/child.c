@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-static void	cleanall(char **paths, char **args, char *str, int status)
+static void cleanall(char **paths, char **args, char *str)
 {
 	if (paths)
 		clean_split(paths);
@@ -20,18 +20,22 @@ static void	cleanall(char **paths, char **args, char *str, int status)
 		clean_split(args);
 	if (str)
 		free(str);
-	// close((pipex())->fds->end_point);
-	// close((pipex())->fds->end[1]);
-	// close((pipex())->fds->end[0]);
-	// close((pipex())->fds->fd[0]);
-	// close((pipex())->fds->fd[1]);
-	perror("OOF");
+	if ((pipex())->fds->end_point == -1)
+		close((pipex())->fds->end_point);
+	if ((pipex())->fds->end[1] == -1)
+		close((pipex())->fds->end[1]);
+	if ((pipex())->fds->end[0] == -1)
+		close((pipex())->fds->end[0]);
+	if ((pipex())->fds->fd[0] == -1)
+		close((pipex())->fds->fd[0]);
+	if ((pipex())->fds->fd[1] == -1)
+		close((pipex())->fds->fd[1]);
 	exit(errno);
 }
 
-int	put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
+int put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
 {
-	int	x;
+	int x;
 
 	x = 0;
 	if (cmd[0] == '\0')
@@ -55,35 +59,21 @@ int	put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
 	return (1);
 }
 
-void	child_process(t_pipex *a, int i, char **envp)
+void child_process(t_pipex *a, int i, char **envp)
 {
-	char	**args;
-	char	*pathcmd;
-	int		flag;
-	int		status;
+	char **args;
+	char *pathcmd;
 
 	args = NULL;
 	pathcmd = NULL;
-	status = 1;
 	if (!access(a->cmds[i], X_OK))
 	{
 		pathcmd = ft_strdup(a->cmds[i]);
 		args = ft_split(a->cmds[i], ' ');
-		flag = 1;
 	}
 	else
-		flag = put_valid_cmds(a->cmds[i], a, &args, &pathcmd);
-	if (flag == 0)
-	{
-		ft_printf("%s\n", strerror(errno));
-		file_descriptors_manager(i, a);
-		cleanall(a->paths, args, pathcmd, status);
-	}
+		put_valid_cmds(a->cmds[i], a, &args, &pathcmd);
 	file_descriptors_manager(i, a);
-	char *test[2] = {"lpo", NULL};
-	status = execve(test[0], test, envp);
-	fprintf(stderr, "status mano: %d\n", errno);
-	perror(NULL);
-
-	cleanall(a->paths, args, pathcmd, status);
+	execve(pathcmd, args, envp);
+	cleanall(a->paths, args, pathcmd);
 }
