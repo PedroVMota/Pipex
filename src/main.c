@@ -24,10 +24,12 @@ static void	manage_here_forking(int i, int *pid, t_pipex *a)
 
 int	pipex_init(t_pipex *a, char **envp)
 {
+	int	status;
 	int	i;
 	int	*pid;
 
 	i = -1;
+	status = 0;
 	pid = malloc(sizeof(int) * (a->n_args));
 	if (!pid)
 		error_func("Malloc Error");
@@ -43,8 +45,7 @@ int	pipex_init(t_pipex *a, char **envp)
 		}
 		file_description_cleaner(i, a);
 	}
-	int status = waitall(pid, a->n_args, 0); 
-
+	status = waitall(pid, a->n_args, 0); 
 	return (status);
 }
 
@@ -53,7 +54,7 @@ int	main(int ac, char **av, char **en)
 	int	exit_status;
 
 	exit_status = 0;
-	if (ac - 1 < 4)
+	if (ac < 5)
 		error_func("Not enough arguments");
 	set_modes(av, pipex(), ac);
 	formatpath(en);

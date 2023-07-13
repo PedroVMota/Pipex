@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-static void cleanall(char **paths, char **args, char *str)
+static void	cleanall(char **paths, char **args, char *str)
 {
 	if (paths)
 		clean_split(paths);
@@ -20,22 +20,17 @@ static void cleanall(char **paths, char **args, char *str)
 		clean_split(args);
 	if (str)
 		free(str);
-	if ((pipex())->fds->end_point == -1)
-		close((pipex())->fds->end_point);
-	if ((pipex())->fds->end[1] == -1)
-		close((pipex())->fds->end[1]);
-	if ((pipex())->fds->end[0] == -1)
-		close((pipex())->fds->end[0]);
-	if ((pipex())->fds->fd[0] == -1)
-		close((pipex())->fds->fd[0]);
-	if ((pipex())->fds->fd[1] == -1)
-		close((pipex())->fds->fd[1]);
+	close((pipex())->fds->end_point);
+	close((pipex())->fds->end[1]);
+	close((pipex())->fds->end[0]);
+	close((pipex())->fds->fd[0]);
+	close((pipex())->fds->fd[1]);
 	exit(errno);
 }
 
-int put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
+int	put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
 {
-	int x;
+	int	x;
 
 	x = 0;
 	if (cmd[0] == '\0')
@@ -55,25 +50,31 @@ int put_valid_cmds(char *cmd, t_pipex *a, char ***args, char **path)
 			return (1);
 		x++;
 	}
-	printf("NAO EXUCUTAR\n");
-	return (1);
+	return (0);
 }
 
-void child_process(t_pipex *a, int i, char **envp)
+void	child_process(t_pipex *a, int i, char **envp)
 {
-	char **args;
-	char *pathcmd;
+	char	**args;
+	char	*pathcmd;
+	int		flag;
 
+	flag = 0;
 	args = NULL;
 	pathcmd = NULL;
 	if (!access(a->cmds[i], X_OK))
 	{
 		pathcmd = ft_strdup(a->cmds[i]);
 		args = ft_split(a->cmds[i], ' ');
+		flag = 1;
 	}
 	else
-		put_valid_cmds(a->cmds[i], a, &args, &pathcmd);
-	file_descriptors_manager(i, a);
-	execve(pathcmd, args, envp);
+		flag = put_valid_cmds(a->cmds[i], a, &args, &pathcmd);
+	if (flag)
+	{
+		file_descriptors_manager(i, a);
+		execve(pathcmd, args, envp);
+		cleanall(a->paths, args, pathcmd);
+	}
 	cleanall(a->paths, args, pathcmd);
 }

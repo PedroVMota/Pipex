@@ -23,6 +23,13 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@make fclean -C ./libft --no-print
+
+
+CMD = ./pipex Makefile cat ls "wc -l" "las" oufile
+
+check:
+	valgrind --leak-check=full --show-leak-kinds=all --track-fds=all $(CMD)
+
 re: fclean all
 
 

@@ -65,7 +65,6 @@ void	error_func(char *msg)
 void	exec_exit(t_pipex *a, int status)
 {
 	clean_split(a->paths);
-	printf("Status: %i\n", status);
-	// perror("asdas :");
+	ft_printf("Status: %i\n", status);
 	exit(status);
 }
